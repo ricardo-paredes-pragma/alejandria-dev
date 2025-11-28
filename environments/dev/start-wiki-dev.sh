@@ -29,4 +29,11 @@ else
 fi
 
 echo -e "${GREEN}Wiki.js development environment started successfully!${NC}"
+
+# Task 3: Print Service Status
+echo ""
+echo "Service Status:"
+docker-compose ps
+
+echo ""
 echo "Access Wiki.js at http://localhost:3000 (or configured port)"
