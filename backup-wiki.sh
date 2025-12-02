@@ -6,8 +6,9 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # Directory where the script is located
-SCRIPT_DIR="$(dirname "$0")"
-BACKUP_DIR="$SCRIPT_DIR/data"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ENV_DIR="$SCRIPT_DIR/environments/dev"
+BACKUP_DIR="$ENV_DIR/data"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 BACKUP_FILE="$BACKUP_DIR/wiki_backup_$TIMESTAMP.sql"
 
@@ -16,8 +17,8 @@ echo "Starting Wiki.js database backup..."
 # Ensure backup directory exists
 mkdir -p "$BACKUP_DIR"
 
-# Navigate to script directory for docker-compose context
-cd "$SCRIPT_DIR"
+# Navigate to environment directory for docker-compose context
+cd "$ENV_DIR"
 
 # Load environment variables if present
 if [ -f .env ]; then

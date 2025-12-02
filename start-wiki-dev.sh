@@ -7,8 +7,8 @@ NC='\033[0m' # No Color
 
 echo "Starting Wiki.js development environment..."
 
-# Navigate to the script directory to ensure docker-compose commands work correctly
-cd "$(dirname "$0")"
+# Navigate to the environments/dev directory to ensure docker-compose commands work correctly
+cd "$(dirname "$0")/environments/dev"
 
 # Task 1: Pull images
 echo -n "Pulling Docker images... "
